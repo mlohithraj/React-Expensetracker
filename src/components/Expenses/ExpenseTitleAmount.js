@@ -1,4 +1,4 @@
-function ExpenseTitleAmount(props) {
+const ExpenseTitleAmount = (props) => {
     const title = props.title;
     const amount = props.amount;
 
