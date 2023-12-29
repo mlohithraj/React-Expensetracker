@@ -1,19 +1,64 @@
+import React, {useState} from "react";
+import './ExpenseForm.css'
+
 const ExpenseForm = () => {
 
-    const titleChangeHandler = (event) => {
-        console.log(event.target.value);
+    const [oldTitle, setNewTitle] = useState('');
+    const [oldAmount, setNewAmount] = useState('');
+    const [oldDate, setNewDate] = useState('');
+
+    // const [userInput, setUserInput] = useState({
+    //     setNewTitle: '',
+    //     setNewAmount: '',
+    //     setNewDate: ''
+    // })
+
+     const titleChangeHandler = (event) => {
+        setNewTitle(event.target.value);
+        // setUserInput({
+        //     ...userInput,
+        //     setNewTitle: event.target.value
+        // })
+        // setUserInput((prevState) => {
+        //     return {...prevState, setNewTitle: event.target.value }
+        // })
     }
 
     const amountChangeHandler = (event) => {
-        console.log(event.target.value);
+        setNewAmount(event.target.value);
+        // setUserInput({
+        //     ...userInput,
+        //     setNewAmount: event.target.value
+        // })
+        // setUserInput((prevState) => {
+        //     return {...prevState, setNewAmount: event.target.value }
+        // })
     }
 
     const dateChangeHandler = (event) => {
-        console.log(event.target.value);
+        setNewDate(event.target.value);
+        // setUserInput({
+        //     ...userInput,
+        //     setNewDate: event.target.value
+        // })
+        // setUserInput((prevState) => {
+        //     return {...prevState, setNewDate: event.target.value }
+        // })
     }
 
+    const submitHandler = (event) => {
+        event.preventDefault();
+       
+        const expenseData = {
+            title: oldTitle,
+            Amount: oldAmount,
+            Date: new Date(oldDate)
+        }
+        console.log(expenseData);
+        }
+
     return (
-        <form>
+        <form onClick={submitHandler}>
             <div className="new-expense-controls">
                 <div className="new-expense-control">
                     <label>Title</label>
